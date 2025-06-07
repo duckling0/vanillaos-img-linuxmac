@@ -20,27 +20,26 @@ stages:
     commands:
     - lpkg --unlock
     - apt-get update
-
+    - apt update
+    - apt upgrade -y
+    - apt clean
+    - apt install dkms gcc make linux-headers-generic wget
   # Put your custom actions below this comment
-
-  - name: example-packages # Sample module using the built-in Apt module to install packages
-    type: apt
-    source:
-      packages:
-      - vim
-
-  - name: example-commands # Sample module demonstrating the Shell module with custom commands
+  
+  #audio driver
+  - name: macbook12-audio-driver
     type: shell
     commands:
-    - echo Example output
-
-  - name: example-modules # Sample module demonstrating importing local and remote modules
-    type: includes
-    includes:
-      - modules/50-install-debs.yml # Sample local module present in this repository
-      - gh:vanilla-os/dev-image:main:modules/00-basics.yml # Sample GitHub remote module in the format: `gh:your-name/your-repo:branch:modules/file.yml`
-      - https://raw.githubusercontent.com/Vanilla-OS/dev-image/main/modules/05-go.yml # Sample full URL remote module
-
+    - cd modules/macbook12-audio-driver-master
+    - ./install.cirrus.driver.sh -i  
+    
+    #bluetooth driver
+  - name: macbook12-bluetooth-driver
+    type: shell
+    commands:
+    - cd modules/macbook12-bluetooth-driver-master
+    - ./install.bluetooth.sh -i
+    
   # Put your custom actions above this comment
 
   - name: set-image-name-abroot
