@@ -4,7 +4,7 @@ while [ $# -gt 0 ]
 do
     case $1 in
     -i|--install) dkms_action='install';;
-    -k|--kernel) dkms_kernel=$2; [[ -z $dkms_kernel ]] && echo '-k|--kernel must be followed by a kernel version' && exit 1;;
+    -k|--kernel) dkms_kernel=$2; [[ -z $dkms_kernel ]] && echo -k $(cat /usr/share/vanilla/kernel-version) && exit 1;;
     -r|--remove) dkms_action='remove';;
     -u|--uninstall) dkms_action='remove';;
     (-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
