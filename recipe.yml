@@ -31,6 +31,7 @@ stages:
     type: shell
     commands:
     - cd /usr/lib/macbook12-audio-driver-master
+    - chmod +x install.cirrus.driver.sh
     - ./install.cirrus.driver.sh -i  
     
     #bluetooth driver
@@ -38,6 +39,7 @@ stages:
     type: shell
     commands:
     - cd /usr/lib/macbook12-bluetooth-driver-master
+    - chmod +x install.bluetooth.sh
     - ./install.bluetooth.sh -i
     
   # Put your custom actions above this comment
