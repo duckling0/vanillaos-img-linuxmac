@@ -23,7 +23,7 @@ stages:
     - apt update
     - apt upgrade -y
     - apt clean
-    - apt install dkms gcc make linux-headers-generic wget
+    - apt install -y dkms gcc make linux-headers-generic wget
   # Put your custom actions below this comment
   
   #audio driver
