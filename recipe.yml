@@ -30,14 +30,14 @@ stages:
   - name: macbook12-audio-driver
     type: shell
     commands:
-    - cd modules/macbook12-audio-driver-master
+    - cd /usr/lib/macbook12-audio-driver-master
     - ./install.cirrus.driver.sh -i  
     
     #bluetooth driver
   - name: macbook12-bluetooth-driver
     type: shell
     commands:
-    - cd modules/macbook12-bluetooth-driver-master
+    - cd /usr/lib/macbook12-bluetooth-driver-master
     - ./install.bluetooth.sh -i
     
   # Put your custom actions above this comment
