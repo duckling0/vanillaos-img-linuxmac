@@ -23,24 +23,18 @@ stages:
     - apt update
     - apt upgrade -y
     - apt clean
-    - apt install -y dkms gcc make linux-headers-generic wget
+    - apt install gcc linux-headers-generic make patch wget
   # Put your custom actions below this comment
   
   #audio driver
-  - name: macbook12-audio-driver
+  - name: snd_hda_macbookpro
     type: shell
     commands:
-    - cd /usr/lib/macbook12-audio-driver-master
+    - cd /usr/lib/snd_hda_macbookpro-master
     - chmod +x install.cirrus.driver.sh
     - ./install.cirrus.driver.sh -i  
     
-    #bluetooth driver
-  - name: macbook12-bluetooth-driver
-    type: shell
-    commands:
-    - cd /usr/lib/macbook12-bluetooth-driver-master
-    - chmod +x install.bluetooth.sh
-    - ./install.bluetooth.sh -i
+    #bluetooth driver TODO
     
   # Put your custom actions above this comment
 
