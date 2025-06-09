@@ -20,6 +20,7 @@ stages:
     commands:
     - lpkg --unlock
     - apt-get update
+    - apt update
 
   # Put your custom actions below this comment
 
