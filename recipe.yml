@@ -31,7 +31,7 @@ stages:
     - apt install -y gcc linux-headers-generic make patch wget
     - cd /usr/lib/snd_hda_macbookpro-master
     - chmod +x install.cirrus.driver.sh 
-    #- ./install.cirrus.driver.sh -i
+    - ./install.cirrus.driver.sh -i
     
 
   # Put your custom actions above this comment
