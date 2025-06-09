@@ -93,7 +93,7 @@ else
 	echo "Arch (also Manjaro): Linux: sudo pacman -S linux-headers"
 	echo "Void Linux: xbps-install -S linux-headers"
 
-	exit 1
+	exit 2
 
 fi
 
@@ -140,7 +140,7 @@ if [ $isubuntu -ge 1 ]; then
 		echo "sudo apt install linux-source-$kernel_version"
 		echo "NOTE - This does not work for HWE kernels"
 
-		exit 1
+		exit 3
 
 	fi
 
