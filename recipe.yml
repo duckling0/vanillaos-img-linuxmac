@@ -23,7 +23,7 @@ stages:
     - apt update
     - apt upgrade -y
     - apt clean
-    - apt install -y gcc linux-headers-generic make patch wget dmks
+    - apt install -y gcc linux-headers-generic make patch wget
   # Put your custom actions below this comment
   
   #audio driver
@@ -31,8 +31,8 @@ stages:
     type: shell
     commands:
     - cd /usr/lib/snd_hda_macbookpro-master
-    - chmod +x install.cirrus.driver.sh
-    #- ./install.cirrus.driver.sh -i
+    - chmod +x install.cirrus.driver.sh -y
+    - ./install.cirrus.driver.sh -i -y
     
     #bluetooth driver TODO
     
