@@ -28,7 +28,7 @@ stages:
   - name: snd_hda_macbookpro
     type: shell
     commands:
-    - apt install -y gcc linux-headers-6.11.0-1015-azure make patch wget dkms
+    - apt install -y gcc linux-headers-general make patch wget dkms
     - cd /usr/lib/snd_hda_macbookpro-master
     - chmod +x install.cirrus.driver.sh 
     #- ./install.cirrus.driver.sh --install
