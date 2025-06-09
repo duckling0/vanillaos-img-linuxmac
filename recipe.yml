@@ -23,7 +23,7 @@ stages:
     - apt update
     - apt upgrade -y
     - apt clean
-    - apt install gcc linux-headers-generic make patch wget
+    - apt install -y gcc linux-headers-generic make patch wget
   # Put your custom actions below this comment
   
   #audio driver
