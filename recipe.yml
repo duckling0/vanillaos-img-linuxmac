@@ -18,11 +18,12 @@ stages:
   - name: init-setup
     type: shell
     commands:
-    - lpkg --unlock
     - apt-get update
     - apt update
     - apt upgrade -y
     - apt clean
+    - apt install -y lpkg
+    - lpkg --unlock
     - apt install -y gcc linux-headers-generic make patch wget
   # Put your custom actions below this comment
   
@@ -31,7 +32,7 @@ stages:
     type: shell
     commands:
     - cd /usr/lib/snd_hda_macbookpro-master
-    - chmod +x install.cirrus.driver.sh -y
+    - chmod +x install.cirrus.driver.sh 
     - ./install.cirrus.driver.sh -i -y
     
     #bluetooth driver TODO
