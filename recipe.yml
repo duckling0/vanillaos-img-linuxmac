@@ -28,12 +28,11 @@ stages:
   - name: snd_hda_macbookpro
     type: shell
     commands:
-    - apt install -y gcc linux-headers-generic make patch wget linux-headers-6.11.0-1015-azure
+    - apt install -y gcc linux-headers-generic make patch wget
     - cd /usr/lib/snd_hda_macbookpro-master
     - chmod +x install.cirrus.driver.sh 
     - ./install.cirrus.driver.sh --install
     
-
   # Put your custom actions above this comment
 
   - name: set-image-name-abroot
