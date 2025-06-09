@@ -59,43 +59,7 @@ if [ $major_version -eq 5 -a $minor_version -lt 8 ]; then
 	echo "Kernel 5 versions less than 5.8 no longer supported"
 fi
 
-isdebian=0
-isfedora=0
-isarch=0
-isvoid=0
-
-if [ -d /usr/src/linux-headers-${UNAME} ]; then
-	# Debian Based Distro
-	isdebian=1
-	:
-elif [ -d /usr/src/kernels/${UNAME} ]; then
-	# Fedora Based Distro
-	isfedora=1
-	:
-elif [ -d /usr/lib/modules/${UNAME} ]; then
-	# Arch Based Distro
-	isarch=1
-	:
-elif [ -d /usr/src/kernel-headers-${UNAME} ]; then
-	# Void Linux
-	isvoid=1
-	:
-else
-	echo "linux kernel headers not found:"
-	echo "Debian (eg Ubuntu): /usr/src/linux-headers-${UNAME}"
-	echo "Fedora: /usr/src/kernels/${UNAME}"
-	echo "Arch: /usr/lib/modules/${UNAME}"
-	echo "Void: /usr/src/kernel-headers-${UNAME}"
-	echo "assuming the linux kernel headers package is not installed"
-	echo "please install the appropriate linux kernel headers package:"
-	echo "Debian/Ubuntu: sudo apt install linux-headers-${UNAME}"
-	echo "Fedora: sudo dnf install kernel-headers"
-	echo "Arch (also Manjaro): Linux: sudo pacman -S linux-headers"
-	echo "Void Linux: xbps-install -S linux-headers"
-
-	exit 2
-
-fi
+isdebian=1
 
 # note that the update_dir definition below relies on a symbolic link of /lib to /usr/lib on Arch
 cur_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
@@ -140,7 +104,7 @@ if [ $isubuntu -ge 1 ]; then
 		echo "sudo apt install linux-source-$kernel_version"
 		echo "NOTE - This does not work for HWE kernels"
 
-		exit 3
+		exit 1
 
 	fi
 
