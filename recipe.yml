@@ -31,8 +31,9 @@ stages:
     - apt install -y gcc linux-headers-6.11.0-1015-azure make patch wget dkms
     - cd /usr/lib/snd_hda_macbookpro-master
     - chmod +x install.cirrus.driver.sh 
-    - ./install.cirrus.driver.sh --install
-    
+    #- ./install.cirrus.driver.sh --install
+    - cd /etc/systemd/system
+    - systemctl enable macbookpro-driver-install.service
   # Put your custom actions above this comment
 
   - name: set-image-name-abroot
